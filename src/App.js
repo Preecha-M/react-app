@@ -19,6 +19,15 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // โหลด replies สำหรับโพสต์ทั้งหมดหลังจากโหลดโพสต์สำเร็จ
+    if (posts.length > 0) {
+      posts.forEach((post) => {
+        fetchReplies(post.id);
+      });
+    }
+  }, [posts]);
+
+  useEffect(() => {
     // บันทึก replies ลง localStorage เมื่อมีการอัปเดต
     localStorage.setItem('replies', JSON.stringify(replies));
   }, [replies]);
