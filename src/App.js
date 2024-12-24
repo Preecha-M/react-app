@@ -89,9 +89,9 @@ function App() {
         </h1>
         <div className="flex justify-center items-center my-6">
           <img
-            src="https://example.com/christmas-tree-icon.png"
+            src="https://media.giphy.com/media/LTcau7EnQLhHkxxG2u/giphy.gif?cid=790b7611xl015ncxostkgpjjcbnyjehqh7hncdsoreze23so&ep=v1_gifs_search&rid=giphy.gif&ct=g"
             alt="Christmas Tree"
-            className="w-16 h-16"
+            className="w-50 h-50"
           />
         </div>
         <div className="mb-4">

@@ -77,8 +77,8 @@
 }
 
 h1 {
-  color: #e63946;
-  text-shadow: 2px 2px 8px #ffcc00;
+  color: #fb4351;
+  
 }
 
 button {
@@ -106,6 +106,7 @@ button {
 input {
   background: #fff;
   border-radius: 5px;
+  color: #000;
 }
 
 p {
