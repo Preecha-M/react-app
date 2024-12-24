@@ -78,11 +78,23 @@ function App() {
 
   return (
     <div className="App">
-      <div className="snow">
-        {Array.from({ length: 50 }).map((_, i) => (
-          <div key={i} className="snowflake">❄</div>
-        ))}
-      </div>
+<div className="snow">
+  {Array.from({ length: 50 }).map((_, i) => (
+    <div
+      key={i}
+      className="snowflake"
+      style={{
+        left: `${Math.random() * 100}%`,
+        animationDuration: `${Math.random() * 5 + 10}s`,
+        fontSize: `${Math.random() * 1.5 + 1}em`,
+        opacity: `${Math.random() * 0.5 + 0.5}`,
+      }}
+    >
+      ❄
+    </div>
+  ))}
+</div>
+
       <div className="container mx-auto p-4">
         <h1 className="text-4xl font-bold mb-4 text-red-500">
           🎄 Merry christmas kub🎅

@@ -66,6 +66,55 @@ body {
   }
 }
 
+/* เพิ่มความหลากหลายของตำแหน่ง */
+.snowflake:nth-child(1) {
+  left: 10%;
+  animation-duration: 8s;
+  opacity: 0.5;
+}
+
+.snowflake:nth-child(2) {
+  left: 20%;
+  animation-duration: 10s;
+  font-size: 2em;
+}
+
+.snowflake:nth-child(3) {
+  left: 30%;
+  animation-duration: 12s;
+  font-size: 1.2em;
+}
+
+.snowflake:nth-child(4) {
+  left: 40%;
+  animation-duration: 14s;
+  opacity: 0.8;
+}
+
+.snowflake:nth-child(5) {
+  left: 50%;
+  animation-duration: 9s;
+  font-size: 1.8em;
+}
+
+.snowflake:nth-child(6) {
+  left: 60%;
+  animation-duration: 11s;
+}
+
+.snowflake:nth-child(7) {
+  left: 70%;
+  animation-duration: 13s;
+  font-size: 1.4em;
+}
+
+.snowflake:nth-child(8) {
+  left: 80%;
+  animation-duration: 15s;
+  opacity: 0.6;
+}
+
+
 .App {
   background: url('https://example.com/christmas-background.jpg') no-repeat center center fixed;
   background-size: cover;
