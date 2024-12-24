@@ -7,7 +7,6 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
   const [replies, setReplies] = useState(() => {
-    // โหลด replies จาก localStorage
     const savedReplies = localStorage.getItem('replies');
     return savedReplies ? JSON.parse(savedReplies) : {};
   });
@@ -17,16 +16,14 @@ function App() {
   useEffect(() => {
     fetchPosts();
 
-    // Polling: รีโหลดข้อมูลทุก 5 วินาที
     const interval = setInterval(() => {
       fetchPosts();
     }, 5000);
 
-    return () => clearInterval(interval); // เคลียร์ interval เมื่อ component ถูก unmount
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    // โหลด replies สำหรับโพสต์ทั้งหมดหลังจากโหลดโพสต์สำเร็จ
     if (posts.length > 0) {
       posts.forEach((post) => {
         fetchReplies(post.id);
@@ -35,11 +32,9 @@ function App() {
   }, [posts]);
 
   useEffect(() => {
-    // บันทึก replies ลง localStorage เมื่อมีการอัปเดต
     localStorage.setItem('replies', JSON.stringify(replies));
   }, [replies]);
 
-  // Fetch all posts
   const fetchPosts = async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/posts`);
@@ -49,7 +44,6 @@ function App() {
     }
   };
 
-  // Submit a new post
   const handlePostSubmit = async () => {
     try {
       await axios.post(`${API_BASE_URL}/posts`, { content: newPost });
@@ -60,7 +54,6 @@ function App() {
     }
   };
 
-  // Submit a reply to a specific post
   const handleReplySubmit = async (postId) => {
     try {
       await axios.post(`${API_BASE_URL}/replies`, { postId, content: newReply[postId] });
@@ -71,7 +64,6 @@ function App() {
     }
   };
 
-  // Fetch replies for a specific post
   const fetchReplies = async (postId) => {
     try {
       const response = await axios.get(`${API_BASE_URL}/replies/${postId}`);
@@ -86,8 +78,22 @@ function App() {
 
   return (
     <div className="App">
+      <div className="snow">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div key={i} className="snowflake">❄</div>
+        ))}
+      </div>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Message Board</h1>
+        <h1 className="text-4xl font-bold mb-4 text-red-500">
+          🎄 Merry christmas kub🎅
+        </h1>
+        <div className="flex justify-center items-center my-6">
+          <img
+            src="https://example.com/christmas-tree-icon.png"
+            alt="Christmas Tree"
+            className="w-16 h-16"
+          />
+        </div>
         <div className="mb-4">
           <input
             type="text"
