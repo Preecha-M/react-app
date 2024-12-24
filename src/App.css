@@ -12,6 +12,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+@font-face {
+  font-family: 'BoonJot';
+  src: url('./assets/fonts/BoonJot-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'BoonJot', sans-serif;
+}
 
 .App-header {
   background-color: #282c34;
@@ -66,7 +76,6 @@
   background: url('https://example.com/christmas-background.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
-  font-family: 'Merriweather', serif;
 }
 
 .container {
@@ -78,7 +87,8 @@
 
 h1 {
   color: #fb4351;
-  
+  font-family: 'BoonJot', sans-serif;
+
 }
 
 button {
@@ -110,6 +120,7 @@ input {
 }
 
 p {
+  font-family: 'BoonJot', sans-serif;
   font-size: 1.1rem;
 }
 
