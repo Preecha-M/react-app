@@ -6,13 +6,22 @@ import './index.css';
 function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
-  const [replies, setReplies] = useState({});
+  const [replies, setReplies] = useState(() => {
+    // โหลด replies จาก localStorage
+    const savedReplies = localStorage.getItem('replies');
+    return savedReplies ? JSON.parse(savedReplies) : {};
+  });
   const [newReply, setNewReply] = useState({});
   const API_BASE_URL = "https://react-backend-2vkl.onrender.com"; // Backend URL
 
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  useEffect(() => {
+    // บันทึก replies ลง localStorage เมื่อมีการอัปเดต
+    localStorage.setItem('replies', JSON.stringify(replies));
+  }, [replies]);
 
   // Fetch all posts
   const fetchPosts = async () => {
@@ -50,7 +59,10 @@ function App() {
   const fetchReplies = async (postId) => {
     try {
       const response = await axios.get(`${API_BASE_URL}/replies/${postId}`);
-      setReplies({ ...replies, [postId]: response.data });
+      setReplies((prevReplies) => ({
+        ...prevReplies,
+        [postId]: response.data,
+      }));
     } catch (error) {
       console.error('Error fetching replies:', error);
     }
