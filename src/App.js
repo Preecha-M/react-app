@@ -16,6 +16,13 @@ function App() {
 
   useEffect(() => {
     fetchPosts();
+
+    // Polling: รีโหลดข้อมูลทุก 5 วินาที
+    const interval = setInterval(() => {
+      fetchPosts();
+    }, 5000);
+
+    return () => clearInterval(interval); // เคลียร์ interval เมื่อ component ถูก unmount
   }, []);
 
   useEffect(() => {
